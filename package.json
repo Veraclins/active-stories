@@ -37,7 +37,7 @@
       "typeorm": "0.2.21"
    },
    "scripts": {
-      "dev": "ts-node-dev --no-deps --no-notify --respawn --transpileOnly -r tsconfig-paths/register ./src",
+      "start": "ts-node-dev --no-deps --no-notify --respawn --transpileOnly -r tsconfig-paths/register ./src",
       "test": "npm-run-all test:real post:test --continue-on-error",
       "test:real": "jest",
       "pretest": "createdb archimydes-test",
