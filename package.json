@@ -1,0 +1,46 @@
+{
+   "name": "archimydes-backend",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "devDependencies": {
+      "@types/bcrypt": "^3.0.0",
+      "@types/cors": "^2.8.6",
+      "@types/express": "^4.17.2",
+      "@types/jest": "^24.0.23",
+      "@types/jsonwebtoken": "^8.3.5",
+      "@types/node": "^8.0.29",
+      "@types/supertest": "^2.0.8",
+      "@typescript-eslint/eslint-plugin": "^2.11.0",
+      "@typescript-eslint/parser": "^2.11.0",
+      "eslint": "^6.7.2",
+      "eslint-config-prettier": "^6.7.0",
+      "eslint-plugin-prettier": "^3.1.1",
+      "jest": "^24.9.0",
+      "npm-run-all": "^4.1.5",
+      "prettier": "^1.19.1",
+      "supertest": "^4.0.2",
+      "ts-jest": "^24.2.0",
+      "ts-node": "3.3.0",
+      "ts-node-dev": "^1.0.0-pre.44",
+      "tsconfig-paths": "^3.9.0",
+      "typescript": "3.3.3333"
+   },
+   "dependencies": {
+      "bcrypt": "^3.0.7",
+      "body-parser": "^1.18.1",
+      "cors": "^2.8.5",
+      "dotenv": "^8.2.0",
+      "express": "^4.15.4",
+      "jsonwebtoken": "^8.5.1",
+      "pg": "^7.3.0",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.21"
+   },
+   "scripts": {
+      "dev": "ts-node-dev --no-deps --no-notify --respawn --transpileOnly -r tsconfig-paths/register ./src",
+      "test": "npm-run-all test:real post:test --continue-on-error",
+      "test:real": "jest",
+      "pretest": "createdb archimydes-test",
+      "post:test": "dropdb archimydes-test"
+   }
+}

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "lib": ["es6", "esnext", "dom"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "baseUrl": "src",
+    "paths": {
+      "*": ["*"]
+    },
+    "types": ["node", "jest"]
+  },
+  "include": ["src"]
+}

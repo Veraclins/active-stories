@@ -1,0 +1,23 @@
+{
+   "type": "postgres",
+   "host": "localhost",
+   "port": 5432,
+   "username": "clintonagada",
+   "password": "",
+   "database": "archimydes",
+   "synchronize": true,
+   "entities": [
+      "src/entities/**/*.ts"
+   ],
+   "migrations": [
+      "src/migrations/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscribers/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entities",
+      "migrationsDir": "src/migrations",
+      "subscribersDir": "src/subscribers"
+   }
+}
