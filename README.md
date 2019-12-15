@@ -25,30 +25,24 @@ the app has the following features:
 
 To run the app locally, setup a local development environment. Ensure that [`Nodejs`](https://nodejs.org/en/download/) and [`PostgreSQL`](https://www.postgresql.org/download/) are installed on your machine.
 
-1. Clone the repository: `git clone https://github.com/Veraclins/Maintenance-Tracker-React.git`.
-2. Navigate to the project directory: `cd Maintenance-Tracker-React`
-3. Install dependencies: `npm install`.
-4. Change .env-example to .env.
-5. Create a postgres database and update .env with the credentials (The database url is in the form of `postgres://username:password@host:PORT_NO/database_name`)
-6. Set SSL to false in src/database/index.js (`SSL: false`)
-7. Run `npm run dev` to start the app with hot reloading or `npm start` to start it normally.
-8. visit http://localhost:3000 (or any port set in the .env file)
+1. Clone the repository: `git clone git@github.com:Veraclins/active-stories.git`.
+2. Navigate to the project directory: `cd active-stories`
+3. Install dependencies: `yarn`.
+4. Change .env-example to .env `cp .env.example .env`.
+5. Create a postgres database and update .env with the credentials
+6. Run `yarn start` to start the app with hot reloading.
+7. visit http://localhost:3000 (or any port set in the .env file) see [docs](https://app.swaggerhub.com/apis-docs/Veraclins-Com/active-stories/1.0.0) for endpoints and requirements.
 
 ## Testing
 
 To run the tests:
 
-1. Ensure you have done items 1-5 above.
-2. Run `npm test`
+1. Ensure you have run the installation process above.
+2. Run `yarn test`
 
-The API runs on PORT 3000 by default but you can run it on any port you want by updating the port in .env file.
+## Assumptions
 
-The API docs is available [here](https://veratech.herokuapp.com/api-docs)
-
-## Swagger Doc
-
-[Click Here](https://app.swaggerhub.com/apis-docs/Veraclins-Com/active-stories/1.0.0)
-
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+1. The application can be used from a frontend application or a tool such as `Postman`.
+2. The cost is proportional to the estimated time for completion, hence having a mapping of cost to estimated time removes the stress of calculating it from the user. The user only needs to select a cost.
+3. While one can login as an admin, an admin can only be seeded or created directly in the database.
+4. A rejected story can still be approved and vice versa.
