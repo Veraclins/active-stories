@@ -10,29 +10,20 @@ export class StoryController {
   async createStory(request: Request, response: Response, next: NextFunction) {
     const { user, body } = request;
 
-    const { summary, description, type, complexity, cost } = body;
+    const { summary, description, type, complexity, cost, estimatedHrs } = body;
 
-    if (!summary || !description || !type || !complexity || !cost) {
+    if (
+      !summary ||
+      !description ||
+      !type ||
+      !complexity ||
+      !cost ||
+      !estimatedHrs
+    ) {
       response.statusCode = 400;
       return next(new Error('Please fill all the fields'));
     }
-    const costTimeMap: { [index: string]: string } = {
-      1: 'half day',
-      2: 'half to full day',
-      3: 'full day to half week',
-      5: 'half a week to a full week',
-      8: 'full week to week and a half',
-      13: 'A week and half to two weeks',
-    };
-    const allowedCost = [1, 2, 3, 5, 8, 13];
-    if (!allowedCost.includes(Number(cost))) {
-      response.statusCode = 400;
-      return next(
-        new Error(
-          `Please ensure that 'cost' is one of ${allowedCost.join(', ')}`
-        )
-      );
-    }
+
     try {
       // const user = await
       const story = await this.storyRepository.save({
@@ -41,7 +32,7 @@ export class StoryController {
         type,
         complexity,
         cost,
-        estimatedTime: costTimeMap[cost],
+        estimatedHrs,
         createdBy: user,
       });
       return story;

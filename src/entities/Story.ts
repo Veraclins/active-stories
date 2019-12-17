@@ -4,8 +4,6 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToOne,
-  JoinColumn,
   ManyToOne,
 } from 'typeorm';
 import { User } from './User';
@@ -37,7 +35,7 @@ export class Story {
   status: StatusType;
 
   @Column()
-  estimatedTime: string;
+  estimatedHrs: string;
 
   @Column()
   cost: number;

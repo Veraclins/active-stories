@@ -72,7 +72,7 @@ export class AuthController {
         return next(new Error(message));
       }
 
-      if (path.includes('adminLogin') && user.userRole !== 'admin') {
+      if (path.includes('admin-login') && user.userRole !== 'admin') {
         response.statusCode = 403;
         return next(
           new Error(

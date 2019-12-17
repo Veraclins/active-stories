@@ -111,10 +111,10 @@ describe('Testing API Endpoints', () => {
       expect(response.status).toEqual(401);
     });
   });
-  describe('Post /api/adminLogin', () => {
+  describe('Post /api/admin-login', () => {
     it('should login an admin and return a token', async () => {
       const response = await request(app)
-        .post('/api/adminLogin')
+        .post('/api/admin-login')
         .send({
           email: 'admin@active-stories.com',
           password: 'password',
@@ -125,7 +125,7 @@ describe('Testing API Endpoints', () => {
     });
     it('should fail if user is not an admin', async () => {
       const response = await request(app)
-        .post('/api/adminLogin')
+        .post('/api/admin-login')
         .send({
           email: 'user@test.test',
           password: 'password',
@@ -143,6 +143,7 @@ describe('Testing API Endpoints', () => {
           description: 'The description could be anything that adds context',
           type: 'enhancement',
           complexity: 'Hard',
+          estimatedHrs: 2,
           cost: 8,
         });
       expect(response.status).toEqual(200);
@@ -155,6 +156,7 @@ describe('Testing API Endpoints', () => {
           description: 'The description could be anything that adds context',
           type: 'enhancement',
           complexity: 'Hard',
+          estimatedHrs: 2,
           cost: 8,
         });
       expect(response.status).toEqual(401);
@@ -168,6 +170,7 @@ describe('Testing API Endpoints', () => {
           description: 'The description could be anything that adds context',
           type: 'enhancement',
           complexity: 'Hard',
+          estimatedHrs: 2,
           cost: 8,
         });
       expect(response.status).toEqual(401);
@@ -180,19 +183,6 @@ describe('Testing API Endpoints', () => {
           summary: 'A useful test story that will fail',
           description: 'The description could be anything that adds context',
           type: 'enhancement',
-        });
-      expect(response.status).toEqual(400);
-    });
-    it('should fail if cost is not one of the allowed values', async () => {
-      const response = await request(app)
-        .post('/api/createStory')
-        .set('x-access-token', token)
-        .send({
-          summary: 'A useful test story',
-          description: 'The description could be anything that adds context',
-          type: 'enhancement',
-          complexity: 'Hard',
-          cost: 10,
         });
       expect(response.status).toEqual(400);
     });

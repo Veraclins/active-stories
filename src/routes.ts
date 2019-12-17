@@ -26,7 +26,7 @@ export const Routes: Route[] = [
   },
   {
     method: 'post',
-    route: '/adminLogin',
+    route: '/admin-login',
     controller: AuthController,
     action: 'login',
     type: 'public',
