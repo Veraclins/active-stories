@@ -43,16 +43,18 @@ export class StoryController {
 
   async getStories(request: Request, response: Response, next: NextFunction) {
     const { user } = request;
-    let stories: any[] = [];
+    let stories: Story[] = [];
     let message = '';
     let noStoriesMessage = '';
     if (user.userRole === 'admin') {
       noStoriesMessage = 'No user stories have been created yet.';
-      stories = await this.storyRepository.all();
+      stories = (await this.storyRepository.all()) as Story[];
       message = 'All user stories retrieved successfully!';
     } else {
       noStoriesMessage = 'You have not created any stories yet.';
-      stories = await this.storyRepository.many({ createdBy: user });
+      stories = (await this.storyRepository.many({
+        createdBy: user,
+      })) as Story[];
       message = 'All your stories retrieved successfully!';
     }
     if (!stories.length) {
@@ -61,6 +63,8 @@ export class StoryController {
         data: stories,
       };
     }
+    // Typeorm does not have soft delete feature hence, rejected stories are therefore filtered out
+    stories = stories.filter(story => story.status !== 'rejected');
     return {
       message,
       data: stories,

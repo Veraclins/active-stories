@@ -28,7 +28,7 @@ To run the app locally, setup a local development environment. Ensure that [`Nod
 1. Clone the repository: `git clone git@github.com:Veraclins/active-stories.git`.
 2. Navigate to the project directory: `cd active-stories`
 3. Install dependencies: `yarn`.
-4. Change .env-example to .env `cp .env.example .env`.
+4. Change .env-example to .env `cp .env.example .env` and fill the variables.
 5. Create a postgres database and update .env with the credentials
 6. Run `yarn start` to start the app with hot reloading.
 7. visit http://localhost:3000 (or any port set in the .env file) see [docs](https://app.swaggerhub.com/apis-docs/Veraclins-Com/active-stories/1.0.0) for endpoints and requirements.
@@ -43,6 +43,5 @@ To run the tests:
 ## Assumptions
 
 1. The application can be used from a frontend application or a tool such as `Postman`.
-2. The cost is proportional to the estimated time for completion, hence having a mapping of cost to estimated time removes the stress of calculating it from the user. The user only needs to select a cost.
-3. While one can login as an admin, an admin can only be seeded or created directly in the database.
-4. A rejected story can still be approved and vice versa.
+2. While one can login as an admin, an admin can only be seeded or created directly in the database.
+3. A rejected story can still be approved and vice versa.

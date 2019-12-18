@@ -14,6 +14,7 @@ export const server = async () => {
       password: env.DATABASE_PASSWORD || '',
       database: env.DATABASE_NAME || 'archimydes',
       entities: ['src/entities/**/*.ts'],
+      synchronize: true,
     });
     const port = env.PORT || 3000;
 
@@ -24,8 +25,8 @@ export const server = async () => {
     const seeded = await connection.manager.find('User', {
       email: 'admin@active-stories.com',
     });
-    const hashed = await hashPassword('password');
     if (!seeded.length) {
+      const hashed = await hashPassword('password');
       await connection.manager.save(
         connection.manager.create('User', {
           email: 'admin@active-stories.com',
