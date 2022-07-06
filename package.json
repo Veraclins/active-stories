@@ -34,7 +34,7 @@
       "jsonwebtoken": "^8.5.1",
       "pg": "^7.3.0",
       "reflect-metadata": "^0.1.10",
-      "typeorm": "0.2.21"
+      "typeorm": "0.3.0"
    },
    "scripts": {
       "start": "ts-node-dev --no-deps --no-notify --respawn --transpileOnly -r tsconfig-paths/register ./src",
